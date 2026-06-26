@@ -15,7 +15,6 @@ import {
   Star,
   Plus,
   Minus,
-  Calendar,
   Sparkles,
   ArrowRight,
   TrendingUp
@@ -30,13 +29,6 @@ type Testimonial = {
   rating: number;
   course: string;
   avatar: string;
-};
-
-type NoticeItem = {
-  date: string;
-  title: string;
-  desc: string;
-  badge: string;
 };
 
 type FaqItem = {
@@ -65,9 +57,7 @@ export default function HomePage() {
   const carouselImages = [
     "/Event_01.jpg",
     "/Event_02.jpg",
-
     "/Event_04.jpg",
-
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -106,7 +96,6 @@ export default function HomePage() {
     setOpenFaq(openFaq === index ? null : index);
 
   // Data from translations
-  const notices = t.raw('hero.notices') as NoticeItem[];
   const highlightItems = t.raw('highlights.items') as { title: string; desc: string }[];
   const whyUsItems = t.raw('whyUs.items') as { title: string; desc: string }[];
   const featuredCourses = t.raw('featuredCourses.items') as CourseItem[];
@@ -138,7 +127,7 @@ export default function HomePage() {
       {/* 1. Hero Section with Carousel Background */}
       <section className="relative min-h-screen flex flex-col justify-between text-white overflow-hidden bg-brand-blue-950 p-6 sm:p-10 lg:p-16">
 
-        {/* ─── BACKGROUND CAROUSEL (Crisp & Blur-Free) ─────────────────── */}
+        {/* ─── BACKGROUND CAROUSEL ─────────────────── */}
         <div className="absolute inset-0 z-0 bg-brand-blue-950">
           {carouselImages.map((imgUrl, index) => (
             <div
@@ -151,20 +140,16 @@ export default function HomePage() {
               }}
             />
           ))}
-          {/* Lighter clean gradient overlay - Image clear dikhegi */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/50" />
         </div>
 
-        {/* ─── TOP LEFT: HEADLINE & BADGE (Semi-Bold & Modern) ─────────── */}
+        {/* ─── TOP LEFT: HEADLINE ─────────── */}
         <div className="relative z-10 w-full max-w-xl lg:max-w-3xl pt-6 lg:pt-8">
-
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-brand-yellow-400 text-[11px] font-semibold uppercase tracking-widest mb-5">
             <Sparkles className="h-3.5 w-3.5" />
             <span>{t('common.admissionsOpen')}</span>
           </div>
 
-          {/* Small & Clean Title */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-snug text-white/95">
             {t('hero.headline1')}{' '}
             <span className="text-brand-yellow-400 font-medium">{t('hero.headlineAccent')}</span>{' '}
@@ -172,16 +157,13 @@ export default function HomePage() {
           </h1>
         </div>
 
-        {/* ─── BOTTOM RIGHT: SUBTITLE & ACTION BUTTONS ─────────────────── */}
+        {/* ─── BOTTOM RIGHT: SUBTITLE & BUTTONS ─────────────────── */}
         <div className="relative z-10 w-full flex flex-col items-end mt-auto pb-16 lg:pb-4">
           <div className="w-full max-w-md bg-black/40 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10 shadow-2xl">
-
-            {/* Subtitle */}
             <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-6 font-normal">
               {t('hero.subtitle')}
             </p>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <button
                 onClick={() => openEnquiry()}
@@ -198,11 +180,10 @@ export default function HomePage() {
                 {t('hero.contactUs')}
               </Link>
             </div>
-
           </div>
         </div>
 
-        {/* ─── FLOATING CAROUSEL CONTROLS (Bottom Left Corner) ─────────── */}
+        {/* ─── CAROUSEL CONTROLS ─────────── */}
         <div className="absolute bottom-6 left-6 sm:left-10 lg:left-16 flex items-center gap-3 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 z-10">
           <button
             onClick={prevSlide}
@@ -218,8 +199,8 @@ export default function HomePage() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`h-1 rounded-full transition-all duration-300 ${index === currentSlide
-                  ? 'w-4 bg-brand-yellow-400'
-                  : 'w-1 bg-white/30'
+                    ? 'w-4 bg-brand-yellow-400'
+                    : 'w-1 bg-white/30'
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
