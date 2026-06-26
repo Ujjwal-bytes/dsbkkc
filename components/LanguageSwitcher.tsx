@@ -6,8 +6,9 @@ import { useState, useTransition } from 'react';
 import { Globe } from 'lucide-react';
 
 const locales = [
+   { code: 'mr', label: 'मर', nativeLabel: 'मराठी' },
   { code: 'en', label: 'EN', nativeLabel: 'English' },
-  { code: 'mr', label: 'मर', nativeLabel: 'मराठी' },
+ 
 ] as const;
 
 export default function LanguageSwitcher() {
