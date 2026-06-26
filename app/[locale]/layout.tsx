@@ -86,8 +86,7 @@ export default async function LocaleLayout({
       <SchemaMarkup />
 
       {/* Dismissible top notification banner */}
-      <NoticeTicker />
-
+      {/* <NoticeTicker /> */}
       {/* Sticky Header Navigation */}
       <Navbar />
 

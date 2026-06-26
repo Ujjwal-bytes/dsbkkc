@@ -37,7 +37,7 @@ export default function EnquiryModal() {
   useEffect(() => {
     setIsClient(true);
   }, []);
-
+// Handle escape key to close modal
   useEffect(() => {
     if (!isClient) return;
 
