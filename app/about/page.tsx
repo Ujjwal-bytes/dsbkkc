@@ -231,3 +231,7 @@ export default function AboutPage() {
     </div>
   );
 }
+
+
+// 6. Contact Us
+
