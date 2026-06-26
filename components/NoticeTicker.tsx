@@ -6,21 +6,29 @@ import Link from 'next/link';
 
 export default function NoticeTicker() {
   const [isVisible, setIsVisible] = useState(true);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     // Check if user dismissed the announcement in this session
-    const isDismissed = sessionStorage.getItem('announcement-dismissed');
+    const isDismissed =
+      typeof sessionStorage !== 'undefined'
+        ? sessionStorage.getItem('announcement-dismissed')
+        : null;
     if (isDismissed === 'true') {
       setIsVisible(false);
     }
   }, []);
 
   const handleDismiss = () => {
-    sessionStorage.setItem('announcement-dismissed', 'true');
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.setItem('announcement-dismissed', 'true');
+    }
     setIsVisible(false);
   };
 
-  if (!isVisible) return null;
+  // Don't hide on server or initial client render
+  if (isClient && !isVisible) return null;
 
   return (
     <div className="relative z-50 bg-brand-yellow-400 text-brand-blue-950 font-semibold py-2.5 px-4 text-sm shadow-md flex items-center justify-between transition-all duration-300">

@@ -10,9 +10,18 @@ interface ScrollRevealProps {
 
 export default function ScrollReveal({ children, className = '', delay = 0 }: ScrollRevealProps) {
   const [isIntersecting, setIsIntersecting] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setHasMounted(true);
+    
+    // Check if IntersectionObserver is available
+    if (typeof IntersectionObserver === 'undefined') {
+      setIsIntersecting(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -43,7 +52,7 @@ export default function ScrollReveal({ children, className = '', delay = 0 }: Sc
       ref={ref}
       style={{ animationDelay: `${delay}ms` }}
       className={`${className} transition-all duration-700 ${
-        isIntersecting ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'
+        isIntersecting || !hasMounted ? 'opacity-100' : 'opacity-0 translate-y-8'
       }`}
     >
       {children}

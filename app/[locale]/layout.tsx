@@ -1,9 +1,7 @@
-import type { Metadata, Viewport } from "next";
-import { Montserrat, Noto_Sans_Devanagari } from "next/font/google";
+import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
-import "../globals.css";
 
 // Components
 import Navbar from "@/components/Navbar";
@@ -13,29 +11,6 @@ import NoticeTicker from "@/components/NoticeTicker";
 import BackToTop from "@/components/BackToTop";
 import EnquiryModal from "@/components/EnquiryModal";
 import SchemaMarkup from "@/components/SchemaMarkup";
-
-// Context
-import { EnquiryProvider } from "@/context/EnquiryContext";
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-const notoSansDevanagari = Noto_Sans_Devanagari({
-  variable: "--font-devanagari",
-  subsets: ["devanagari"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-};
 
 const locales = ["en", "mr"] as const;
 
@@ -75,7 +50,7 @@ export async function generateMetadata({
           url: "https://www.dsbkcc.com/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: "DSB KKC Academy - Empowering Students for the Future",
+          alt: "DSB KKC Academy",
         },
       ],
       locale: locale === "mr" ? "mr_IN" : "en_IN",
@@ -106,39 +81,30 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
-      className={`${montserrat.variable} ${notoSansDevanagari.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground transition-colors duration-300">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <EnquiryProvider>
-            {/* Schema Markup for SEO */}
-            <SchemaMarkup />
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      {/* Schema Markup for SEO */}
+      <SchemaMarkup />
 
-            {/* Dismissible top notification banner */}
-            <NoticeTicker />
+      {/* Dismissible top notification banner */}
+      <NoticeTicker />
 
-            {/* Sticky Header Navigation */}
-            <Navbar />
+      {/* Sticky Header Navigation */}
+      <Navbar />
 
-            {/* Main page content */}
-            <main className="flex-grow">{children}</main>
+      {/* Main page content */}
+      <main className="flex-grow">{children}</main>
 
-            {/* Educational Footer */}
-            <Footer />
+      {/* Educational Footer */}
+      <Footer />
 
-            {/* Fixed WhatsApp & Call Contact Hub */}
-            <FloatingButtons />
+      {/* Fixed WhatsApp & Call Contact Hub */}
+      <FloatingButtons />
 
-            {/* Scroll to Top Arrow */}
-            <BackToTop />
+      {/* Scroll to Top Arrow */}
+      <BackToTop />
 
-            {/* Global Course Enquiry Modal */}
-            <EnquiryModal />
-          </EnquiryProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+      {/* Global Course Enquiry Modal */}
+      <EnquiryModal />
+    </NextIntlClientProvider>
   );
 }

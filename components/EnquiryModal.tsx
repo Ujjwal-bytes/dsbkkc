@@ -32,7 +32,15 @@ export default function EnquiryModal() {
   }, [selectedCourse, isOpen]);
 
   // Handle escape key to close
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeEnquiry();
     };
@@ -44,7 +52,7 @@ export default function EnquiryModal() {
       window.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, closeEnquiry]);
+  }, [isOpen, closeEnquiry, isClient]);
 
   if (!isOpen) return null;
 

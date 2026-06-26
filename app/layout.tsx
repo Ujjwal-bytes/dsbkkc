@@ -1,7 +1,10 @@
 // app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Noto_Sans_Devanagari } from "next/font/google";
 import "./globals.css";
+
+// Context
+import { EnquiryProvider } from "@/context/EnquiryContext";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -16,6 +19,12 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
   weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: {
@@ -63,9 +72,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
-      <body className={`${montserrat.variable} ${notoSansDevanagari.variable} h-full antialiased font-sans`}>
-        {children}
+    <html lang="en" className={`${montserrat.variable} ${notoSansDevanagari.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-sans bg-background text-foreground transition-colors duration-300">
+        <EnquiryProvider>{children}</EnquiryProvider>
       </body>
     </html>
   );
