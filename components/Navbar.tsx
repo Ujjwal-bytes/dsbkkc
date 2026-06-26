@@ -3,22 +3,23 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { Menu, X, GraduationCap, PhoneCall } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function Navbar() {
   const pathname = usePathname();
   const { openEnquiry } = useEnquiry();
+  const locale = useLocale();
+  const t = useTranslations('nav');
+
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -36,13 +37,13 @@ export default function Navbar() {
   }, [isOpen]);
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Courses', href: '/courses' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'Testimonials', href: '/testimonials' },
-    { name: 'Admission', href: '/admission' },
-    { name: 'Contact Us', href: '/contact' },
+    { name: t('home'), href: `/${locale}` },
+    { name: t('about'), href: `/${locale}/about` },
+    { name: t('courses'), href: `/${locale}/courses` },
+    { name: t('gallery'), href: `/${locale}/gallery` },
+    { name: t('testimonials'), href: `/${locale}/testimonials` },
+    { name: t('admission'), href: `/${locale}/admission` },
+    { name: t('contact'), href: `/${locale}/contact` },
   ];
 
   return (
@@ -53,10 +54,10 @@ export default function Navbar() {
         }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4"> {/* Added gap-4 here to manage squishing */}
+        <div className="flex items-center justify-between gap-4">
 
-          {/* Logo & Name - Added shrink-0 */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
+          {/* Logo */}
+          <Link href={`/${locale}`} className="flex items-center gap-3 group shrink-0">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue-600 dark:bg-brand-yellow-500 shadow-md group-hover:scale-105 transition-transform duration-300">
               <GraduationCap className="h-6 w-6 text-white dark:text-brand-blue-900" />
             </div>
@@ -65,18 +66,18 @@ export default function Navbar() {
                 DSB KKC
               </span>
               <span className="text-[10px] font-bold uppercase tracking-widest text-brand-yellow-600 dark:text-brand-yellow-400 mt-0.5 whitespace-nowrap">
-                Dnyaneshwar Barate's Academy
+                {t('academyTagline')}
               </span>
             </div>
           </Link>
 
-          {/* Desktop Nav Links - Changed gap-7 to responsive gap-4 xl:gap-7 to prevent breaking */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-7 justify-center flex-1">
+          {/* Desktop Nav Links */}
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 justify-center flex-1">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
-                  key={link.name}
+                  key={link.href}
                   href={link.href}
                   className={`text-sm font-semibold tracking-wide transition-all relative py-1 hover:text-brand-blue-500 dark:hover:text-brand-yellow-400 whitespace-nowrap ${isActive
                     ? 'text-brand-blue-600 dark:text-brand-yellow-400 font-bold'
@@ -92,35 +93,37 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* CTA Buttons (Desktop) - Added shrink-0 */}
-          <div className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
+          {/* Desktop CTA + Language Switcher */}
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0">
+            <LanguageSwitcher />
             <a
               href="tel:+919876543210"
               className="flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-brand-yellow-400 hover:text-brand-blue-600 dark:hover:text-brand-yellow-300 transition-colors whitespace-nowrap"
             >
               <PhoneCall className="h-4 w-4 text-brand-blue-600 dark:text-brand-yellow-500" />
-              <span>+91 98765 43210</span>
+              <span>{t('callUs')}</span>
             </a>
             <button
               onClick={() => openEnquiry()}
               className="rounded-xl bg-brand-blue-600 hover:bg-brand-blue-500 dark:bg-brand-yellow-500 dark:hover:bg-brand-yellow-400 px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer text-white dark:text-brand-blue-950 whitespace-nowrap"
             >
-              Enroll Now
+              {t('enrollNow')}
             </button>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="flex lg:hidden items-center gap-3">
+          <div className="flex lg:hidden items-center gap-2">
+            <LanguageSwitcher />
             <button
               onClick={() => openEnquiry()}
               className="rounded-lg bg-brand-blue-600 dark:bg-brand-yellow-500 px-4 py-2 text-xs font-bold shadow-md active:scale-95 transition-transform text-white dark:text-brand-blue-950"
             >
-              Enroll
+              {t('enroll')}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-700 dark:text-slate-200 hover:text-brand-blue-600 dark:hover:text-brand-yellow-400 p-2 rounded-lg bg-slate-50 dark:bg-brand-blue-700/50 focus:outline-none"
-              aria-label="Toggle Menu"
+              aria-label={t('toggleMenu')}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -129,7 +132,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation Overlay */}
+      {/* Mobile Drawer */}
       {isOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div
@@ -157,7 +160,7 @@ export default function Navbar() {
                   const isActive = pathname === link.href;
                   return (
                     <Link
-                      key={link.name}
+                      key={link.href}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
                       className={`px-4 py-3 rounded-xl text-sm font-bold transition-all ${isActive
@@ -178,7 +181,7 @@ export default function Navbar() {
                 className="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-slate-700 dark:text-brand-yellow-400 hover:text-brand-blue-600 mb-4 transition-colors"
               >
                 <PhoneCall className="h-5 w-5 text-brand-blue-600 dark:text-brand-yellow-500" />
-                <span>+91 98765 43210</span>
+                <span>{t('callUs')}</span>
               </a>
               <button
                 onClick={() => {
@@ -187,7 +190,7 @@ export default function Navbar() {
                 }}
                 className="w-full rounded-xl bg-brand-blue-600 hover:bg-brand-blue-500 dark:bg-brand-yellow-500 dark:hover:bg-brand-yellow-400 px-3 py-3.5 text-sm font-bold shadow-md transition-all cursor-pointer text-center text-white dark:text-brand-blue-950"
               >
-                Enroll Now
+                {t('enrollNow')}
               </button>
             </div>
           </div>

@@ -43,6 +43,7 @@
   --color-brand-yellow-700: #a16207;
   
   --font-sans: var(--font-montserrat);
+  --font-devanagari: var(--font-devanagari, 'Noto Sans Devanagari');
   
   --animate-fade-in: fade-in 0.5s ease-out forwards;
   --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -108,6 +109,27 @@ a,
 li,
 blockquote {
   font-family: var(--font-montserrat), sans-serif !important;
+}
+
+/* Marathi (Devanagari) — supplement Montserrat with Noto Sans Devanagari */
+[lang="mr"] body,
+[lang="mr"] h1,
+[lang="mr"] h2,
+[lang="mr"] h3,
+[lang="mr"] h4,
+[lang="mr"] h5,
+[lang="mr"] h6,
+[lang="mr"] p,
+[lang="mr"] span,
+[lang="mr"] label,
+[lang="mr"] button,
+[lang="mr"] input,
+[lang="mr"] select,
+[lang="mr"] textarea,
+[lang="mr"] a,
+[lang="mr"] li,
+[lang="mr"] blockquote {
+  font-family: var(--font-devanagari), var(--font-montserrat), sans-serif !important;
 }
 
 body {

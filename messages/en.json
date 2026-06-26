@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "home": {
+      "title": "DSB KKC | Dnyaneshwar Barate's Academy - Pune",
+      "description": "DSB KKC is a premium educational academy in Pune offering Abacus, English Speaking, Vedic Mathematics, Handwriting, Robotics, and Tuitions (1st to 10th Standard)."
+    },
+    "about": {
+      "title": "About Us | DSB KKC Academy - Pune",
+      "description": "Learn about DSB KKC's mission, vision, founder Dnyaneshwar Barate, and why thousands of parents trust us for their children's education."
+    },
+    "courses": {
+      "title": "Courses | DSB KKC Academy - Abacus, Vedic Maths, Robotics & More",
+      "description": "Explore all courses at DSB KKC: Abacus, English Speaking, Vedic Maths, Handwriting, Robotics, and 1st to 10th Tuitions in Pune."
+    },
+    "gallery": {
+      "title": "Gallery | DSB KKC Academy - Student Activities",
+      "description": "Browse photos and moments from DSB KKC Academy — student activities, competitions, workshops, and classroom highlights."
+    },
+    "testimonials": {
+      "title": "Testimonials | DSB KKC Academy - Parent & Student Reviews",
+      "description": "Read what parents and students say about DSB KKC Academy in Pune. Real reviews and success stories from our community."
+    },
+    "admission": {
+      "title": "Admission | DSB KKC Academy - Apply Online",
+      "description": "Apply for admission at DSB KKC Academy, Pune. Fill the online registration form for Abacus, Vedic Maths, Robotics, and more."
+    },
+    "contact": {
+      "title": "Contact Us | DSB KKC Academy - Pune",
+      "description": "Get in touch with DSB KKC Academy. Call, WhatsApp, or visit us at Katraj, Pune. We're happy to help with admissions and enquiries."
+    }
+  },
+  "common": {
+    "enrollNow": "Enroll Now",
+    "enroll": "Enroll",
+    "contactUs": "Contact Us",
+    "enquireNow": "Enquire Now",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "submit": "Submit",
+    "loading": "Please wait...",
+    "learnMore": "Learn More",
+    "backHome": "Back to Home",
+    "admissionsOpen": "Admissions Open for 2026 - 27",
+    "liveUpdates": "Live Updates"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "courses": "Courses",
+    "gallery": "Gallery",
+    "testimonials": "Testimonials",
+    "admission": "Admission",
+    "contact": "Contact Us",
+    "enrollNow": "Enroll Now",
+    "enroll": "Enroll",
+    "callUs": "+91 98765 43210",
+    "toggleMenu": "Toggle Menu",
+    "academyTagline": "Dnyaneshwar Barate's Academy"
+  },
+  "hero": {
+    "headline1": "Empowering Students with",
+    "headlineAccent": "Skills",
+    "headline2": "for the Future",
+    "subtitle": "Join DSB KKC (Dnyaneshwar Barate's Academy) to experience premium academic tutoring and life-changing skill programs like Abacus, Vedic Maths, and Robotics.",
+    "enrollNow": "Enroll Now",
+    "contactUs": "Contact Us",
+    "statStudents": "Students Mentored",
+    "statYears": "Years Experience",
+    "statCourses": "Expert Courses",
+    "noticeBoardTitle": "Notice Board",
+    "enquireSchedules": "Enquire about upcoming schedules",
+    "notices": [
+      {
+        "date": "July 01, 2026",
+        "title": "New Batches Starting Soon!",
+        "desc": "Fresh batches for Abacus (Level 1), Vedic Maths, and Robotics are starting from Monday. Limited seats available. Contact office to reserve.",
+        "badge": "Batches"
+      },
+      {
+        "date": "June 28, 2026",
+        "title": "Free Handwriting & Rubik's Cube Workshop",
+        "desc": "A special 2-hour free workshop is organized this Saturday at 10:00 AM. Open for kids aged 6-15. Registration is compulsory.",
+        "badge": "Workshop"
+      },
+      {
+        "date": "June 25, 2026",
+        "title": "Regular Academic Tuitions Admission Open",
+        "desc": "Admissions are actively open for school tuitions (1st to 10th Standard) for all subjects. Daily batches, weekly mock tests.",
+        "badge": "Admissions"
+      }
+    ]
+  },
+  "highlights": {
+    "eyebrow": "Our Core Pillars",
+    "title": "Designed to Deliver Educational Excellence",
+    "subtitle": "We focus on building strong cognitive bases and academic foundations for children. Here is what makes us different.",
+    "items": [
+      {
+        "title": "Experienced Teachers",
+        "desc": "Learn from highly trained subject experts, personally mentored and guided by founder Dnyaneshwar Barate."
+      },
+      {
+        "title": "Practical Learning",
+        "desc": "We believe in hands-on learning. Robotics kits, math tools, and interactive conversations drive our modules."
+      },
+      {
+        "title": "Affordable Fees",
+        "desc": "Premium training made accessible. We offer top-tier education with flexible, affordable installment payment plans."
+      },
+      {
+        "title": "Small Batch Sizes",
+        "desc": "Maximum 15 students per batch. This allows personal attention, regular assessments, and tailored pace for every kid."
+      }
+    ]
+  },
+  "whyUs": {
+    "eyebrow": "Why Parents Trust Us",
+    "title": "Empowering Kids Beyond the Textbooks",
+    "subtitle": "At DSB KKC, we don't just focus on school curriculum grades. We focus on enhancing brain power, improving communication confidence, and introducing children to cutting-edge skills.",
+    "imageAlt": "Teacher conducting interactive session",
+    "imageCaption": "DSB KKC Academy",
+    "imageCaptionSub": "Nurturing Minds, Building Leaders",
+    "readMore": "Read more about our teaching philosophy",
+    "items": [
+      {
+        "title": "Holistic Brain Development",
+        "desc": "Our Abacus and Vedic Maths programs trigger left-right brain synchronization, improving spatial reasoning and photographic memory."
+      },
+      {
+        "title": "Modern STEM Exposure",
+        "desc": "Robotics classes spark engineering interest early on, teaching concepts of mechanics, electronics, and algorithms."
+      },
+      {
+        "title": "Academic Focus",
+        "desc": "Tuition programs follow rigorous concept clearing, revision loops, weekly mock tests, and systematic problem analysis."
+      }
+    ]
+  },
+  "featuredCourses": {
+    "eyebrow": "Our Premium Offerings",
+    "title": "Featured Academy Programs",
+    "subtitle": "Explore our structured course tracks designed for children from preschool to high school.",
+    "viewAll": "View All Academy Courses",
+    "keyHighlights": "Key Highlights:",
+    "enquireNow": "Enquire Now",
+    "items": [
+      {
+        "title": "Abacus Brain Development",
+        "desc": "A globally recognized system to speed up arithmetic calculations, improve focus, and develop spatial and mental visual memory in kids.",
+        "age": "5 to 14 Years",
+        "benefits": ["Mental Arithmetic Speed", "Enhanced Concentration", "Photographic Memory"]
+      },
+      {
+        "title": "Robotics for Kids",
+        "desc": "An engaging STEM course introducing kids to mechanical assembly, electronic sensor logic, and basic robot programming.",
+        "age": "8 to 15 Years",
+        "benefits": ["Hands-on Assembly Kits", "Logical & STEM Thinking", "Basic Coding Fundamentals"]
+      },
+      {
+        "title": "1st to 10th Tuitions",
+        "desc": "Comprehensive school academic support covering Math, Science, English, and Social Studies. Tailored for CBSE & State Boards.",
+        "age": "6 to 16 Years",
+        "benefits": ["Daily Concept Clearing", "Weekly Mock Assessments", "Small Batches, Max Care"]
+      }
+    ]
+  },
+  "stats": {
+    "items": [
+      { "val": "2,500+", "desc": "Students Mentored" },
+      { "val": "10+", "desc": "Years of Trust" },
+      { "val": "15+", "desc": "Experienced Mentors" },
+      { "val": "98%", "desc": "Happy Parents" }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Real Stories, Real Success",
+    "title": "What Our Parents & Students Say",
+    "readAll": "Read all parent reviews & submit your feedback",
+    "items": [
+      {
+        "name": "Meera Deshmukh",
+        "role": "Parent of Aarav (Age 8)",
+        "text": "Enrolling Aarav in the Abacus course at DSB KKC was the best decision. His math anxiety has completely disappeared, and he can solve complex additions mentally in seconds! The personal attention here is unmatched.",
+        "rating": 5,
+        "course": "Abacus Program",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=80"
+      },
+      {
+        "name": "Rajesh Kulkarni",
+        "role": "Parent of Tanvi (Age 12)",
+        "text": "Tanvi attended the English Speaking and Vedic Maths courses. Her speaking confidence has skyrocketed, and her school grades have improved dramatically. Dnyaneshwar Sir and the team are exceptional educators.",
+        "rating": 5,
+        "course": "English Speaking & Vedic Maths",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80"
+      },
+      {
+        "name": "Sneha Patil",
+        "role": "Parent of Kabir (Age 10)",
+        "text": "The Robotics course here is so practical. Kabir loves assembling the kits and learning basic programming. It is not just rote learning; they actually teach scientific logic and critical thinking.",
+        "rating": 5,
+        "course": "Robotics for Kids",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Got Questions?",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "What is the right age to enroll children in the Abacus program?",
+        "a": "The ideal age for Abacus is between 5 and 14 years. This is the period of maximum brain development, and training at this age boosts memory, visualization, and concentration skills effectively."
+      },
+      {
+        "q": "Do you offer demo classes for new students?",
+        "a": "Yes, we offer 1 free trial/demo class for Abacus, Vedic Maths, and Robotics. This allows parents and students to experience our teaching methodology before committing to a full course."
+      },
+      {
+        "q": "How do Vedic Maths techniques benefit students?",
+        "a": "Vedic Maths provides speed calculation techniques that help students solve math problems 10-15 times faster. It is highly beneficial for school exams, scholarship tests, and competitive examinations."
+      },
+      {
+        "q": "Are tuition classes aligned with CBSE and State Board syllabi?",
+        "a": "Yes! Our tuition classes for 1st to 10th standard cover State Board, CBSE, and ICSE syllabi. We focus on concept clarity, regular tests, and thorough exam preparation."
+      },
+      {
+        "q": "What is the student-to-teacher ratio in a batch?",
+        "a": "To ensure personal attention, we keep our batch sizes small. The maximum number of students per batch is limited to 15, allowing teachers to address each child's individual learning needs."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Invest in Your Child's Future",
+    "title": "Ready to Give Your Child an Academic Edge?",
+    "subtitle": "Book a free counseling and demo class session with Dnyaneshwar Sir. Let's discuss how we can partner to help your child excel.",
+    "bookTrial": "Book Free Trial Session",
+    "applyOnline": "Apply Online Now",
+    "noCard": "No credit card required. Trial sessions are completely free of charge."
+  },
+  "footer": {
+    "tagline": "DSB KKC is committed to empowering students with the essential academic coaching and modern cognitive skills required to excel in their careers and the future.",
+    "quickLinksTitle": "Quick Links",
+    "programsTitle": "Our Programs",
+    "newsletterTitle": "Newsletter",
+    "newsletterSubtitle": "Subscribe to get announcements, batch timings, and event updates.",
+    "emailPlaceholder": "Your email address",
+    "subscribeSuccess": "Subscribed successfully!",
+    "emailRequired": "Email address is required",
+    "emailInvalid": "Please enter a valid email address",
+    "subscribeError": "Subscription failed. Please try again.",
+    "address": "Shop No. 4, Barate Complex, Katraj, Pune - 411046",
+    "hours": "Mon - Sat: 9:00 AM - 7:00 PM",
+    "copyright": "DSB KKC (Dnyaneshwar Barate's Academy). All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "links": {
+      "home": "Home Page",
+      "about": "About Us",
+      "courses": "Our Courses",
+      "gallery": "Student Gallery",
+      "testimonials": "Testimonials",
+      "admission": "Admission Form",
+      "contact": "Contact Us"
+    },
+    "programs": [
+      "Abacus",
+      "English Speaking",
+      "Vedic Maths",
+      "Handwriting",
+      "Robotics",
+      "Tuition Classes (1st-10th)"
+    ]
+  },
+  "about": {
+    "heroEyebrow": "Our Story & Mission",
+    "heroTitle": "About DSB KKC Academy",
+    "heroSubtitle": "A decade of transforming young minds with skills, knowledge, and confidence.",
+    "founderTitle": "A Message from Our Founder",
+    "founderName": "Dnyaneshwar Barate",
+    "founderRole": "Founder & Head Educator, DSB KKC Academy",
+    "founderQuote": "Every child is a genius waiting to be unlocked. At DSB KKC, we don't just teach—we inspire, guide, and nurture each student's unique potential. Our mission is to bridge the gap between traditional schooling and the real-world skills children need to thrive.",
+    "founderBody": "With over a decade of experience in education, I founded DSB KKC with a simple belief: every student deserves access to premium, skill-focused education regardless of their background. From our humble beginnings in Katraj, Pune, we have grown into a trusted institution that has impacted over 2,500 young learners.",
+    "missionTitle": "Our Mission",
+    "missionText": "To provide holistic, affordable, and high-quality education that empowers students academically, cognitively, and personally — preparing them for the challenges of the 21st century.",
+    "visionTitle": "Our Vision",
+    "visionText": "To become the most trusted educational academy in Pune, recognized for producing confident, capable, and compassionate learners who contribute meaningfully to society.",
+    "valuesTitle": "Our Core Values",
+    "values": [
+      { "title": "Excellence", "desc": "We set high standards in teaching quality, curriculum design, and student outcomes." },
+      { "title": "Integrity", "desc": "We build trust through transparency, honesty, and ethical practices in all our operations." },
+      { "title": "Innovation", "desc": "We embrace modern methods—robotics, digital tools, and research-backed techniques." },
+      { "title": "Inclusivity", "desc": "Our doors are open to every child, with flexible fees and personalized learning plans." },
+      { "title": "Community", "desc": "We believe strong partnerships with parents and the local community drive student success." },
+      { "title": "Passion", "desc": "Our educators genuinely love teaching and celebrate every milestone with students." }
+    ],
+    "whyTrustTitle": "Why Thousands of Parents Trust Us",
+    "whyTrustItems": [
+      { "title": "Certified Expert Faculty", "desc": "All teachers are domain-certified and regularly attend professional training workshops." },
+      { "title": "Proven Track Record", "desc": "2,500+ students mentored. Multiple State & National Abacus competition winners from our academy." },
+      { "title": "Safe & Supportive Environment", "desc": "Child-safe classrooms with CCTV monitoring, strict attendance, and regular parent-teacher interactions." },
+      { "title": "Flexible Batch Timings", "desc": "Morning, afternoon, and evening batches to suit every family's schedule." },
+      { "title": "Regular Progress Reports", "desc": "Monthly assessments with detailed progress cards shared with parents after every test cycle." },
+      { "title": "Direct Founder Involvement", "desc": "Dnyaneshwar Sir is actively involved in curriculum design, quality checks, and student mentoring daily." }
+    ]
+  },
+  "admission": {
+    "heroEyebrow": "Join Our Academy",
+    "heroTitle": "Apply for Admission",
+    "heroSubtitle": "Fill in the registration form below. Our team will get back to you within 24 hours to confirm your batch and schedule a free demo class.",
+    "formTitle": "Student Registration Form",
+    "studentName": "Student Full Name",
+    "studentNamePlaceholder": "Enter student's full name",
+    "parentName": "Parent / Guardian Name",
+    "parentNamePlaceholder": "Enter parent's full name",
+    "phone": "Contact Phone Number",
+    "phonePlaceholder": "Enter 10-digit mobile number",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter email address",
+    "standard": "Student's Current Standard / Grade",
+    "selectStandard": "Select standard",
+    "course": "Course of Interest",
+    "selectCourse": "Select a course",
+    "message": "Additional Message (Optional)",
+    "messagePlaceholder": "Any specific queries, preferred batch timings, etc.",
+    "submitBtn": "Submit Registration",
+    "submitting": "Submitting...",
+    "successTitle": "Registration Successful!",
+    "successMsg": "Thank you! We have received your registration. Our team will contact you within 24 hours to confirm your batch details and arrange a free demo session.",
+    "newRegistration": "Submit Another Registration",
+    "required": "required",
+    "courses": ["Abacus", "English Speaking", "Vedic Maths", "Handwriting", "Robotics", "Tuition Classes (1st–10th)"],
+    "standards": ["Nursery / KG", "1st Standard", "2nd Standard", "3rd Standard", "4th Standard", "5th Standard", "6th Standard", "7th Standard", "8th Standard", "9th Standard", "10th Standard", "Other"]
+  },
+  "contact": {
+    "heroEyebrow": "We're Here to Help",
+    "heroTitle": "Contact Us",
+    "heroSubtitle": "Have questions about admissions, courses, or batch timings? Reach out to us — our team responds within a few hours.",
+    "infoTitle": "Get in Touch",
+    "addressTitle": "Our Address",
+    "addressValue": "Shop No. 4, Barate Complex, Katraj, Pune - 411046",
+    "phoneTitle": "Call or WhatsApp",
+    "emailTitle": "Email Us",
+    "hoursTitle": "Working Hours",
+    "hoursValue": "Monday to Saturday: 9:00 AM – 7:00 PM",
+    "formTitle": "Send Us a Message",
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "Your email address",
+    "phonePlaceholder": "Your phone number (optional)",
+    "subjectPlaceholder": "Message subject",
+    "messagePlaceholder": "Write your message here...",
+    "sendBtn": "Send Message",
+    "sending": "Sending...",
+    "successMsg": "Message sent! We'll get back to you within a few hours.",
+    "errorMsg": "Failed to send. Please try again.",
+    "mapTitle": "Find Us on the Map",
+    "required": "required"
+  }
+}

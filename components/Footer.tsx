@@ -2,11 +2,15 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useTranslations, useLocale } from 'next-intl';
 import { GraduationCap, Phone, Mail, MapPin, Send, CheckCircle2, Clock } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 
 export default function Footer() {
   const { openEnquiry } = useEnquiry();
+  const locale = useLocale();
+  const t = useTranslations('footer');
+
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
@@ -14,59 +18,56 @@ export default function Footer() {
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
-    
-    // Simple validation
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email) {
-      setErrorMsg('Email address is required');
+      setErrorMsg(t('emailRequired'));
       setStatus('error');
       return;
     }
     if (!emailRegex.test(email)) {
-      setErrorMsg('Please enter a valid email address');
+      setErrorMsg(t('emailInvalid'));
       setStatus('error');
       return;
     }
 
     setStatus('loading');
-
     try {
-      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setStatus('success');
       setEmail('');
-    } catch (err) {
-      setErrorMsg('Subscription failed. Please try again.');
+    } catch {
+      setErrorMsg(t('subscribeError'));
       setStatus('error');
     }
   };
 
   const currentYear = new Date().getFullYear();
 
+  type ProgramItem = string;
+  const programs = t.raw('programs') as ProgramItem[];
+
   return (
     <footer className="bg-brand-blue-950 text-slate-300 border-t border-brand-blue-800/60 pt-16 pb-8 font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          
-          {/* Col 1: Brand details */}
+
+          {/* Col 1: Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2.5 group">
+            <Link href={`/${locale}`} className="flex items-center gap-2.5 group">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-blue-700 text-brand-yellow-400">
                 <GraduationCap className="h-6 w-6" />
               </div>
               <div className="flex flex-col">
                 <span className="text-md font-extrabold text-white tracking-tight">DSB KKC</span>
                 <span className="text-[8px] font-bold uppercase tracking-wider text-brand-yellow-400">
-                  Dnyaneshwar Barate's Academy
+                  Dnyaneshwar Barate&apos;s Academy
                 </span>
               </div>
             </Link>
-            <p className="text-sm text-slate-400 leading-relaxed pt-2">
-              DSB KKC is committed to empowering students with the essential academic coaching and modern cognitive skills required to excel in their careers and the future.
-            </p>
-            {/* Social Icons */}
+            <p className="text-sm text-slate-400 leading-relaxed pt-2">{t('tagline')}</p>
             <div className="flex items-center gap-3 pt-3">
               {['facebook', 'instagram', 'youtube', 'linkedin'].map((social) => (
                 <a
@@ -100,87 +101,58 @@ export default function Footer() {
           {/* Col 2: Quick Links */}
           <div>
             <h3 className="text-white text-md font-bold uppercase tracking-wider mb-5 border-l-4 border-brand-yellow-400 pl-3">
-              Quick Links
+              {t('quickLinksTitle')}
             </h3>
             <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link href="/" className="hover:text-brand-yellow-400 hover:pl-1 transition-all">
-                  Home Page
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-brand-yellow-400 hover:pl-1 transition-all">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses" className="hover:text-brand-yellow-400 hover:pl-1 transition-all">
-                  Our Courses
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="hover:text-brand-yellow-400 hover:pl-1 transition-all">
-                  Student Gallery
-                </Link>
-              </li>
-              <li>
-                <Link href="/testimonials" className="hover:text-brand-yellow-400 hover:pl-1 transition-all">
-                  Testimonials
-                </Link>
-              </li>
-              <li>
-                <Link href="/admission" className="hover:text-brand-yellow-400 hover:pl-1 transition-all">
-                  Admission Form
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-brand-yellow-400 hover:pl-1 transition-all">
-                  Contact Us
-                </Link>
-              </li>
+              {([
+                { key: 'home', href: `/${locale}` },
+                { key: 'about', href: `/${locale}/about` },
+                { key: 'courses', href: `/${locale}/courses` },
+                { key: 'gallery', href: `/${locale}/gallery` },
+                { key: 'testimonials', href: `/${locale}/testimonials` },
+                { key: 'admission', href: `/${locale}/admission` },
+                { key: 'contact', href: `/${locale}/contact` },
+              ] as const).map(({ key, href }) => (
+                <li key={key}>
+                  <Link href={href} className="hover:text-brand-yellow-400 hover:pl-1 transition-all">
+                    {t(`links.${key}`)}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 3: Academy Courses */}
+          {/* Col 3: Programs */}
           <div>
             <h3 className="text-white text-md font-bold uppercase tracking-wider mb-5 border-l-4 border-brand-yellow-400 pl-3">
-              Our Programs
+              {t('programsTitle')}
             </h3>
             <ul className="space-y-2.5 text-sm">
-              {[
-                'Abacus',
-                'English Speaking',
-                'Vedic Maths',
-                'Handwriting',
-                'Robotics',
-                'Tuition Classes (1st-10th)',
-              ].map((courseName) => (
-                <li key={courseName}>
+              {programs.map((programName) => (
+                <li key={programName}>
                   <button
-                    onClick={() => openEnquiry(courseName)}
+                    onClick={() => openEnquiry(programName)}
                     className="text-left hover:text-brand-yellow-400 hover:pl-1 transition-all cursor-pointer"
                   >
-                    {courseName}
+                    {programName}
                   </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 4: Contact & Newsletter */}
+          {/* Col 4: Newsletter + Contact */}
           <div className="space-y-5">
             <div>
               <h3 className="text-white text-md font-bold uppercase tracking-wider mb-5 border-l-4 border-brand-yellow-400 pl-3">
-                Newsletter
+                {t('newsletterTitle')}
               </h3>
-              <p className="text-xs text-slate-400 mb-3">
-                Subscribe to get announcements, batch timings, and event updates.
-              </p>
-              
+              <p className="text-xs text-slate-400 mb-3">{t('newsletterSubtitle')}</p>
+
               {status === 'success' ? (
                 <div className="p-2 rounded bg-brand-blue-900/50 text-emerald-400 text-xs flex items-center gap-2 border border-emerald-500/30">
                   <CheckCircle2 className="h-4 w-4 shrink-0" />
-                  <span>Subscribed successfully!</span>
+                  <span>{t('subscribeSuccess')}</span>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="space-y-2">
@@ -192,7 +164,7 @@ export default function Footer() {
                         setEmail(e.target.value);
                         if (status === 'error') setStatus('idle');
                       }}
-                      placeholder="Your email address"
+                      placeholder={t('emailPlaceholder')}
                       className="w-full bg-brand-blue-900 border border-brand-blue-800 focus:border-brand-yellow-400 text-white rounded px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-yellow-400 pr-10"
                     />
                     <button
@@ -214,40 +186,36 @@ export default function Footer() {
             <div className="space-y-2 text-xs text-slate-400 pt-2">
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-brand-yellow-400 shrink-0 mt-0.5" />
-                <span>Shop No. 4, Barate Complex, Katraj, Pune - 411046</span>
+                <span>{t('address')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-brand-yellow-400 shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-white">
-                  +91 98765 43210
-                </a>
+                <a href="tel:+919876543210" className="hover:text-white">+91 98765 43210</a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-brand-yellow-400 shrink-0" />
-                <a href="mailto:info@dsbkcc.com" className="hover:text-white">
-                  info@dsbkcc.com
-                </a>
+                <a href="mailto:info@dsbkcc.com" className="hover:text-white">info@dsbkcc.com</a>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-brand-yellow-400 shrink-0" />
-                <span>Mon - Sat: 9:00 AM - 7:00 PM</span>
+                <span>{t('hours')}</span>
               </div>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom copyright section */}
+        {/* Bottom copyright */}
         <div className="pt-8 mt-8 border-t border-brand-blue-800/40 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <span>
-            &copy; {currentYear} DSB KKC (Dnyaneshwar Barate's Academy). All rights reserved.
+            &copy; {currentYear} {t('copyright')}
           </span>
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
-              Privacy Policy
+            <Link href={`/${locale}/privacy-policy`} className="hover:text-slate-300 transition-colors">
+              {t('privacyPolicy')}
             </Link>
-            <Link href="/terms-conditions" className="hover:text-slate-300 transition-colors">
-              Terms & Conditions
+            <Link href={`/${locale}/terms-conditions`} className="hover:text-slate-300 transition-colors">
+              {t('termsConditions')}
             </Link>
           </div>
         </div>
