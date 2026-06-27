@@ -225,7 +225,7 @@ export default async function LocaleLayout({
                     </a>
                     <span style={{ opacity: 0.4 }}>|</span>
                     <a 
-                      href="mailto:info@dsbkkc.com"
+                      href="mailto:ujjwalbytes@gmail.com"
                       style={{
                         color: '#94a3b8',
                         textDecoration: 'none',
@@ -233,7 +233,7 @@ export default async function LocaleLayout({
                         paddingBottom: '2px'
                       }}
                     >
-                      info@dsbkkc.com
+                      ujjwalbytes@gmail.com
                     </a>
                   </div>
                   
